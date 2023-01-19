@@ -16,7 +16,7 @@
                         <input type="text" class="form-control" placeholder="Project name" v-model="form.project_name">
                     </div>
                     <div class="form-group mb-3">
-                        <input type="text" class="form-control" placeholder="Project description" v-model="form.project_description">
+                        <input type="text" class="form-control" placeholder="Project description" v-model="form.project_desc">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -34,13 +34,19 @@ export default {
         return {
             form: {
                 project_name: null,
-                project_description: null
+                project_desc: null
             }
         }
     },
     methods: {
         submit() {
-            console.log(this.form)
+            axios.post('/projects', this.form)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
     }
 }

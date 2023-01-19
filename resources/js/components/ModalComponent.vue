@@ -40,7 +40,7 @@ export default {
     },
     methods: {
         submit() {
-            alert('ok')
+            console.log(this.form)
         }
     }
 }

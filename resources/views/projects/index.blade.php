@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-<project-component />
+<projects-index />
 @endsection

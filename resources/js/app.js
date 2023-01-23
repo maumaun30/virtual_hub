@@ -7,6 +7,8 @@
 import './bootstrap';
 import { createApp } from 'vue';
 
+import router from './router'
+
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
@@ -15,11 +17,8 @@ import { createApp } from 'vue';
 
 const app = createApp({});
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
-
-import ProjectComponent from './components/ProjectComponent.vue';
-app.component('project-component', ProjectComponent);
+import projectIndex from './components/projects/index.vue';
+app.component('projects-index', projectIndex);
 
 import ModalComponent from './components/ModalComponent.vue';
 app.component('modal-component', ModalComponent);
@@ -42,4 +41,4 @@ app.component('modal-component', ModalComponent);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.mount('#app');
+app.use(router).mount('#app');

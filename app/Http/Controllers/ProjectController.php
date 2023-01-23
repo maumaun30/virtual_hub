@@ -38,6 +38,11 @@ class ProjectController extends Controller
     {
         $proj = $project::create($projectRequest->all());
 
+        $proj = new $project;
+        $proj->project_name = $projectRequest->project_name;
+        $proj->project_desc = $projectRequest->project_desc;
+        $proj->save;
+
         return response()->json(['message' => 'Project has been successfully created!', 'data' => $proj]);
     }
 
